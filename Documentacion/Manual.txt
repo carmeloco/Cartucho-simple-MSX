@@ -1,0 +1,35 @@
+Eprom 27C128:
+Jumpers P1+, 128
+CS1 es la dirección 4000-7FFF y CS2 es 8000-Bfff
+
+Eprom 27C256:
+Jumpers P1+, CS3, 256/512
+
+Eprom 27C512:
+Jumpers CS3, 256/512
+Permite el uso de dos roms de 32KB. P1+ selecciona el bloque inferior y P1- el superior.
+
+P1+  = PIN1 está conectado a 5V
+P1-  = PIN1 está conectado a GND
+
+CS1  = select #4000-#7FFF
+CS2  = select #8000-#BFFF
+CS3  = select #4000-#BFFF (AKA CS12 ...more like CS21)
+
+128k     = Pin27 = /Pgm = 5V
+256/512k = Pin27 = A14
+
+4000h-7FFFh (Standard 16KB page 1) Uses /CS1 and /SLTSEL
+8000h-BFFFh (Standard 16KB page 2) Uses /CS2 and /SLTSEL
+4000h-BFFFh (Standard 32KB) Uses /CS12 and /SLTSEL
+0000h-FFFFh (Plain 64KB) Uses /RD and /SLTSEL
+
+configuraciones probadas con 27C512
+Roms de 16KB:
+Jumpers en P1+, CS1, 128
+
+Roms de 32KB:
+Jumpers en P1+, CS3, 256/512
+
+roms de 64KB:
+Jumpers 64KB-1, 64KB-2
